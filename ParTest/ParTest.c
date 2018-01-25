@@ -1,5 +1,11 @@
 /*
- * FreeRTOS Kernel V10.0.0
+ * FreeRTOS V10.0.0 demo application for ATXMega AU chip family.
+ *
+ * Copyright (C) 2018 ProdataKey, Inc.
+ *
+ * Adopted to ATXMega AU chip family from supported demo.
+ */
+/*
  * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -25,18 +31,6 @@
  *
  * 1 tab == 4 spaces!
  */
-
-/*
-Changes from V2.0.0
-
-	+ Use scheduler suspends in place of critical sections.
-
-Changes from V2.6.0
-
-	+ Replaced the inb() and outb() functions with direct memory
-	  access.  This allows the port to be built with the 20050414 build of
-	  WinAVR.
-*/
 
 #include "FreeRTOS.h"
 #include "task.h"

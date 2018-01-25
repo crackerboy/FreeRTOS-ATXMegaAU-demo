@@ -1,5 +1,11 @@
 /*
- * FreeRTOS Kernel V10.0.0
+ * FreeRTOS V10.0.0 demo application for ATXMega AU chip family.
+ *
+ * Copyright (C) 2018 ProdataKey, Inc.
+ *
+ * Adopted to ATXMega AU chip family from supported demo.
+ */
+/*
  * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -30,7 +36,7 @@
  * Creates all the demo application tasks, then starts the scheduler.  The WEB
  * documentation provides more details of the demo application tasks.
  *
- * Main. c also creates a task called "Check".  This only executes every three
+ * Main. c also creates a task called "Check".  This only executes every six
  * seconds but has the highest priority so is guaranteed to get processor time.
  * Its main function is to check that all the other tasks are still operational.
  * Each task that does not flash an LED maintains a unique count that is
@@ -44,37 +50,6 @@
  *
  * The LED flash and communications test tasks do not maintain a count.
  */
-
-/*
-Changes from V1.2.0
-
-	+ Changed the baud rate for the serial test from 19200 to 57600.
-
-Changes from V1.2.3
-
-	+ The integer and comtest tasks are now used when the cooperative scheduler
-	  is being used.  Previously they were only used with the preemptive
-	  scheduler.
-
-Changes from V1.2.5
-
-	+ Set the baud rate to 38400.  This has a smaller error percentage with an
-	  8MHz clock (according to the manual).
-
-Changes from V2.0.0
-
-	+ Delay periods are now specified using variables and constants of
-	  TickType_t rather than unsigned long.
-
-Changes from V2.6.1
-
-	+ The IAR and WinAVR AVR ports are now maintained separately.
-
-Changes from V4.0.5
-
-	+ Modified to demonstrate the use of co-routines.
-
-*/
 
 #include <stdlib.h>
 #include <string.h>
