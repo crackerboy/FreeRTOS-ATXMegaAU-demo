@@ -41,7 +41,7 @@ TARGET = rtosdemo
 
 # Optimization level, can be [0, 1, 2, 3, s]. 0 turns off optimization.
 # (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
-OPT = 0
+OPT = s
 
 
 # List C source files here. (C dependencies are automatically generated.)
@@ -56,11 +56,9 @@ $(SOURCE_DIR)/tasks.c \
 $(SOURCE_DIR)/timers.c \
 $(SOURCE_DIR)/queue.c \
 $(SOURCE_DIR)/list.c \
-$(SOURCE_DIR)/croutine.c \
+$(SOURCE_DIR)/stream_buffer.c \
 $(SOURCE_DIR)/portable/MemMang/heap_1.c \
-$(PORT_DIR)/port.c \
-$(DEMO_DIR)/crflash.c \
-$(DEMO_DIR)/integer.c
+$(PORT_DIR)/port.c
 
 
 # If there is more than one source file, append them above, or modify and
@@ -217,7 +215,8 @@ REMOVE = rm -f
 COPY = cp
 
 HEXSIZE = $(SIZE) --target=$(FORMAT) $(TARGET).hex
-ELFSIZE = $(SIZE) -A $(TARGET).elf
+#ELFSIZE = $(SIZE) -A $(TARGET).elf
+ELFSIZE = $(SIZE) -C --mcu=${MCU} $(TARGET).elf
 
 
 
